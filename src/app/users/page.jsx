@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const UsersPage = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
   const users = await res.json();
@@ -11,7 +13,7 @@ const UsersPage = async () => {
             <h2 className="card-title">{user.name}</h2>
             
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Show Info</button>
+              <Link href={`/users/${user.id}`}><button className="btn btn-primary">Show Info</button></Link>
             </div>
           </div>
         </div>
